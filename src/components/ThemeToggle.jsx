@@ -1,5 +1,4 @@
 'use client';
-// src/components/ThemeToggle.jsx
 import { useEffect, useState } from 'react';
 
 const ThemeToggle = () => {
