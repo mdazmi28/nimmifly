@@ -21,11 +21,11 @@ export default function RootLayout({ children }) {
           {children}
         </div> */}
         <div className='bg-white dark:bg-gray-500 relative'>
-  <div className='absolute top-4 right-4 z-50'>
-    <ThemeToggle />
-  </div>
-  {children}
-</div>
+          <div className='absolute top-4 right-4 z-50'>
+            <ThemeToggle />
+          </div>
+          {children}
+        </div>
       </body>
     </html>
   )
