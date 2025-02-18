@@ -14,7 +14,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       <body className={inter.className}>
-        <div className='bg-white dark:bg-gray-500'>
+        <div className='bg-white dark:bg-gray-500 h-screen'>
           <div className='flex justify-end'>
             <ThemeToggle />
           </div>
