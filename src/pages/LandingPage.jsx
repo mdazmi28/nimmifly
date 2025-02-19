@@ -32,9 +32,6 @@ const LandingPage = () => {
                 <HeroSection />
             </SwiperSlide>
             <SwiperSlide>
-                <AboutSection />
-            </SwiperSlide>
-            <SwiperSlide>
                 <ServicesSection />
             </SwiperSlide>
             {/* <SwiperSlide>
