@@ -28,62 +28,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 <h2 className="text-3xl font-bold text-center mb-6">Add New Contact</h2>
                 
                 {/* Add your form content here */}
-                <form className="space-y-4">
-                    {/* Name Field */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Full Name</span>
-                        </label>
-                        <input 
-                            type="text" 
-                            placeholder="John Doe" 
-                            className="input input-bordered w-full" 
-                            required 
-                        />
-                    </div>
-
-                    {/* Email Field */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Email</span>
-                        </label>
-                        <input 
-                            type="email" 
-                            placeholder="example@email.com" 
-                            className="input input-bordered w-full" 
-                            required 
-                        />
-                    </div>
-
-                    {/* Message Field */}
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">Message</span>
-                        </label>
-                        <textarea 
-                            className="textarea textarea-bordered h-32" 
-                            placeholder="Your message here..."
-                            required
-                        ></textarea>
-                    </div>
-
-                    {/* Submit Button */}
-                    <div className="flex justify-end gap-4 mt-6">
-                        <button 
-                            type="button"
-                            onClick={onClose}
-                            className="btn btn-outline"
-                        >
-                            Cancel
-                        </button>
-                        <button 
-                            type="submit"
-                            className="btn btn-primary"
-                        >
-                            Send Message
-                        </button>
-                    </div>
-                </form>
+                
             </div>
         </div>
     );
