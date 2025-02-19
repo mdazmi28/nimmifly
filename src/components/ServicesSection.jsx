@@ -2,8 +2,8 @@ import React from 'react';
 
 const ServicesSection = () => {
     return (
-        <div className="h-screen flex items-center justify-center bg-gradient-to-br from-rose-700 to-pink-900">
-            <div className="max-w-4xl mx-auto text-white text-center px-4">
+        <div className="h-screen flex items-center justify-center">
+            <div className="max-w-4xl mx-auto  text-center px-4">
                 <h2 className="text-4xl font-bold mb-8">Our Services</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="p-6 bg-white/10 rounded-lg backdrop-blur-sm">

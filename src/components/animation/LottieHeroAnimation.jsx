@@ -1,7 +1,7 @@
 'use client';
 
 import LottieWrapper from './LottieWrapper';
-import animationData from '@/assets/animations/animation.json';
+import animationData from '@/assets/animations/hero_animation.json';
 
 export default function LottieAnimation() {
     return (
@@ -9,8 +9,8 @@ export default function LottieAnimation() {
             <LottieWrapper
                 animationData={animationData}
                 style={{
-                    width: 300,
-                    height: 300
+                    width: 400,
+                    height: 400
                 }}
             />
         </div>
