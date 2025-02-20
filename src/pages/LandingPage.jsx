@@ -33,12 +33,12 @@ const LandingPage = () => {
             <SwiperSlide>
                 <ServicesSection />
             </SwiperSlide>
-            <SwiperSlide>
+            {/* <SwiperSlide>
                <ApplicationServices/>
             </SwiperSlide>
             <SwiperSlide>
                <SOPServices/>
-            </SwiperSlide>
+            </SwiperSlide> */}
         </Swiper>
     );
 };
