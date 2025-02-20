@@ -22,9 +22,6 @@ const LandingPage = () => {
             keyboard={{
                 enabled: true,
             }}
-            // pagination={{
-            //     clickable: true,
-            // }}
             modules={[Mousewheel, Pagination, Keyboard]}
             className="h-screen"
         >
@@ -34,9 +31,10 @@ const LandingPage = () => {
             <SwiperSlide>
                 <ServicesSection />
             </SwiperSlide>
-            {/* <SwiperSlide>
-                <ContactSection />
-            </SwiperSlide> */}
+            <SwiperSlide>
+                {/* <ContactSection /> */}
+                hola
+            </SwiperSlide>
         </Swiper>
     );
 };
