@@ -9,7 +9,9 @@ import 'swiper/css/pagination';
 
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
-import ServicesSection from '@/components/ServicesSection';
+import ServicesSection from '@/components/VisaServicesSection';
+import ApplicationServices from '@/components/ApplicationServices';
+import SOPServices from '@/components/SOPServices';
 // import ContactSection from '@/components/ContactSection';
 
 const LandingPage = () => {
@@ -32,8 +34,10 @@ const LandingPage = () => {
                 <ServicesSection />
             </SwiperSlide>
             <SwiperSlide>
-                {/* <ContactSection /> */}
-                hola
+               <ApplicationServices/>
+            </SwiperSlide>
+            <SwiperSlide>
+               <SOPServices/>
             </SwiperSlide>
         </Swiper>
     );
