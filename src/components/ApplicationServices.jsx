@@ -4,7 +4,7 @@ import React from 'react';
 const ApplicationServices = () => {
     return (
         <div className='w-full h-full bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat absolute inset-0 pt-8'>
-            <div className='flex flex-col md:flex-row h-full'>
+            <div className='flex flex-col-reverse md:flex-row h-full'>
               
                 <div className='w-full md:w-1/2 md:flex md:items-start md:justify-center pt-4 '>
                     <div className="bg-white rounded-full p-8 md:p-12 shadow-xl aspect-square flex flex-col justify-center mx-4">
