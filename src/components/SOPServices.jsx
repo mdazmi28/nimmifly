@@ -7,7 +7,7 @@ const SOPServices = () => {
             <div className='flex flex-col md:flex-row h-full'>
                 <div className='w-full md:w-1/2 flex items-start justify-center pt-4 '>
                     <img
-                        src="/assets/images/visa_service.png"
+                        src="/assets/images/sop.png"
                         alt='Visa Image'
                         // width={500}
                         // height={500} 
