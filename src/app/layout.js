@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import ThemeToggle from '@/components/ThemeToggle'
 import DisableInspect from '@/components/DisableInspect'
+import Navbar from '@/components/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,12 +22,15 @@ export default function RootLayout({ children }) {
           </div>
           {children}
         </div> */}
-        <DisableInspect/>
+        <DisableInspect />
         <div className='bg-white dark:bg-gray-500 relative'>
-          <div className='absolute top-4 right-4 z-50'>
-            <ThemeToggle />
+          <div className='absolute flex justify-center items-center z-50 w-full'>
+            <Navbar />
           </div>
           {children}
+          <div className='absolute right-4 bottom-4 z-50'>
+            <ThemeToggle/>
+          </div>
         </div>
       </body>
     </html>
