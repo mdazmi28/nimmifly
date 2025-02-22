@@ -86,7 +86,7 @@ const ServicesSection = () => {
                     {servicesData.map((destination) => (
                         <SwiperSlide key={destination.id} className="flex flex-col md:flex-row justify-center pb-7">
                             <div className="flex flex-col items-center w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
-                                <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl">
+                                <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4shadow-2xl">
                                     <img
                                         src={destination.image}
                                         alt={destination.title}
