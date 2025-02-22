@@ -131,7 +131,7 @@ const Navbar = ({ activeSection, onNavClick }) => {
 
             {/* Mobile Navigation */}
             <nav className="md:hidden w-full relative">
-                <div className="bg-[#DFF2EF] backdrop-blur-lg px-4 py-3 rounded-full shadow-lg">
+                <div className="bg-[#DFF2EF] backdrop-blur-lg pl-4 py-1 rounded-full shadow-lg">
                     <div className="flex justify-between items-center">
                         <span className="text-black font-medium">
                             {navLinks.find(link => link.key === activeSection)?.name || 'Menu'}
