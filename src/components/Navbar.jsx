@@ -1,9 +1,10 @@
 // Navbar.tsx
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-const Navbar = ({ activeSection, onNavClick }) => {
+const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState('home');
 
     const navLinks = [
         { name: 'Home', key: 'home' },
@@ -14,13 +15,41 @@ const Navbar = ({ activeSection, onNavClick }) => {
         { name: 'We Are At', key: 'location' },
     ];
 
+    // Scroll to section
     const handleClick = (key) => {
-        onNavClick(key);
+        const element = document.getElementById(key);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
         setIsMobileMenuOpen(false);
     };
 
+    // Track scroll position and update active section
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = navLinks.map(link => document.getElementById(link.key));
+            const scrollPosition = window.scrollY + 100; // Offset for better accuracy
+
+            sections.forEach((section, index) => {
+                if (section) {
+                    const sectionTop = section.offsetTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                        setActiveSection(navLinks[index].key);
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
-        <div className="w-full flex justify-center pt-2 px-4">
+        <div className="w-full flex justify-center pt-2 px-4 fixed top-0 z-50">
             {/* Desktop Navigation */}
             <nav className="hidden md:block bg-[#DFF2EF] backdrop-blur-lg py-3 px-6 rounded-full shadow-lg">
                 <ul className="flex items-center space-x-8">
@@ -28,9 +57,9 @@ const Navbar = ({ activeSection, onNavClick }) => {
                         <li key={link.key}>
                             <button
                                 onClick={() => handleClick(link.key)}
-                                className={`px-3 text-[15px] transition-colors duration-300 ${
+                                className={`px-3 text-[15px] transition-all duration-300 ${
                                     activeSection === link.key
-                                        ? 'text-black font-medium'
+                                        ? 'text-black font-bold scale-105'
                                         : 'text-gray-500 hover:text-gray-800'
                                 }`}
                             >
@@ -53,7 +82,6 @@ const Navbar = ({ activeSection, onNavClick }) => {
                             className="text-gray-500 hover:text-gray-800 p-2"
                         >
                             {isMobileMenuOpen ? (
-                                // Close (X) icon
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     className="h-6 w-6" 
@@ -69,7 +97,6 @@ const Navbar = ({ activeSection, onNavClick }) => {
                                     />
                                 </svg>
                             ) : (
-                                // Hamburger menu icon
                                 <svg 
                                     xmlns="http://www.w3.org/2000/svg" 
                                     className="h-6 w-6" 
@@ -91,15 +118,15 @@ const Navbar = ({ activeSection, onNavClick }) => {
 
                 {/* Mobile Menu Dropdown */}
                 {isMobileMenuOpen && (
-                    <div className="absolute left-0 right-0 mt-2 bg-[#DFF2EF] backdrop-blur-lg rounded-3xl shadow-lg overflow-hidden z-50">
+                    <div className="absolute left-0 right-0 mt-2 bg-[#DFF2EF] backdrop-blur-lg rounded-3xl shadow-lg overflow-hidden">
                         <ul className="py-2">
                             {navLinks.map((link) => (
                                 <li key={link.key}>
                                     <button
                                         onClick={() => handleClick(link.key)}
-                                        className={`block w-full text-left px-6 py-3 text-[15px] transition-colors duration-300 ${
+                                        className={`block w-full text-left px-6 py-3 text-[15px] transition-all duration-300 ${
                                             activeSection === link.key
-                                                ? 'text-black font-medium bg-white/20'
+                                                ? 'text-black font-bold bg-white/20'
                                                 : 'text-gray-500 hover:text-gray-800 hover:bg-white/10'
                                         }`}
                                     >
