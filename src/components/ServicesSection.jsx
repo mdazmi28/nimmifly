@@ -56,7 +56,7 @@ const servicesData = [
 const ServicesSection = () => {
     return (
         <div className='w-full  bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat absolute inset-0'>
-            <div className='flex justify-center md:pt-10 pt-10 text-black dark:text-white md:text-4xl font-bold mb-8 md:mb-0'>
+            <div className='flex justify-center md:pt-10 pt-10 text-black dark:text-white md:text-4xl font-bold mb-8 md:mb-8'>
                 OUR SERVICES
             </div>
             <div className='md:h-[500px] md:px-32 h-fit'>
