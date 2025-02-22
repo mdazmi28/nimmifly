@@ -23,7 +23,7 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Main Content Container */}
-          <main className='h-[calc(100vh-50px)] mt-[60px] relative'>
+          <main className='h-[calc(100vh-50px)] mt-[50px] relative'>
             {children}
           </main>
 

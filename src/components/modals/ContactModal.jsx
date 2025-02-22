@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useRef } from 'react';
 import { ImCross } from "react-icons/im";
-import { FiMail, FiPhone, FiMessageSquare } from "react-icons/fi";
+import { FiMail, FiPhone, FiMessageSquare, FiUser } from "react-icons/fi";
 import emailjs from '@emailjs/browser';
 
 const ContactModal = ({ isOpen, onClose }) => {
@@ -61,7 +61,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                     <ImCross className="w-3 h-3" />
                 </button>
 
-                <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-8">
+                <h2 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-0">
                     Get in Touch
                 </h2>
 
@@ -73,8 +73,23 @@ const ContactModal = ({ isOpen, onClose }) => {
                         </p>
                     </div>
                 ) : (
-                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
-                        <div className="space-y-2">
+                    <form ref={formRef} onSubmit={handleSubmit} className="space-y-3">
+                        <div className="">
+                            <label className="text-sm text-gray-600 dark:text-gray-300">
+                                Your Name
+                            </label>
+                            <div className="relative">
+                                <FiUser className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                                <input
+                                    type="name"
+                                    name="user_name" // EmailJS template parameter
+                                    placeholder="Enter your Name"
+                                    className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                                    required
+                                />
+                            </div>
+                        </div>
+                        <div className="">
                             <label className="text-sm text-gray-600 dark:text-gray-300">
                                 Your Email
                             </label>
@@ -90,7 +105,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             </div>
                         </div>
 
-                        <div className="space-y-2">
+                        <div className="">
                             <label className="text-sm text-gray-600 dark:text-gray-300">
                                 Your Phone Number
                             </label>
@@ -106,7 +121,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                             </div>
                         </div>
 
-                        <div className="space-y-2">
+                        <div className="">
                             <label className="text-sm text-gray-600 dark:text-gray-300">
                                 Your Message
                             </label>
@@ -115,7 +130,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                                 <textarea
                                     name="message" // EmailJS template parameter
                                     placeholder="Write your message here..."
-                                    rows="4"
+                                    rows="3"
                                     className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white resize-none"
                                     required
                                 />
