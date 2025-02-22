@@ -19,7 +19,7 @@ const Navbar = ({ activeSection, onNavClick }) => {
     };
 
     return (
-        <div className="w-full flex justify-center pt-2 px-4 border border-red-500">
+        <div className="w-full flex justify-center pt-2 px-4 ">
             {/* Desktop Navigation */}
             <nav className="hidden md:block bg-[#DFF2EF] backdrop-blur-lg py-3 px-6 rounded-full shadow-lg">
                 <ul className="flex items-center space-x-8">
