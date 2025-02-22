@@ -13,13 +13,16 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import DestinationSection from '@/components/DestinationSection';
-import MapSection from '@/components/MapSection'
+import Location from '@/components/Location';
+
+
 
 // Define navLinks here since it's used in the Navbar
 export const navLinks = [
     { name: 'Home', key: 'home' },
     { name: 'Services', key: 'services' },
     { name: 'Destinations', key: 'destinations' },
+    { name: 'We Are At', key: 'location' },
 ];
 
 const LandingPage = () => {
@@ -30,12 +33,14 @@ const LandingPage = () => {
         'home': 0,
         'services': 1,
         'destination': 2,
+        'location': 3,
     };
 
     const indexToSection = {
         0: 'home',
         1: 'services',
         2: 'destination',
+        3: 'location',
     };
 
     const handleSlideChange = (swiper) => {
@@ -86,11 +91,11 @@ const LandingPage = () => {
                         <DestinationSection />
                     </section>
                 </SwiperSlide>
-                {/* <SwiperSlide>
+                <SwiperSlide>
                     <section id="">
-                       <MapSection/>
+                       <Location/>
                     </section>
-                </SwiperSlide> */}
+                </SwiperSlide>
                 {/* <SwiperSlide>
                     <section id="destinations">
                         avf

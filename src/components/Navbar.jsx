@@ -11,6 +11,7 @@ const Navbar = ({ activeSection, onNavClick }) => {
         { name: 'Destination', key: 'destination' },
         { name: 'About Us', key: 'about-us' },
         { name: 'News & Insights', key: 'news-and-insights' },
+        { name: 'We Are At', key: 'location' },
     ];
 
     const handleClick = (key) => {
