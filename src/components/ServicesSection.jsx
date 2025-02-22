@@ -20,7 +20,7 @@ const servicesData = [
         image: '/assets/images/visa_service.png',
         points: [
             'Personalized one-to-one consultation',
-            'Detailed document review and optimization',
+            'Detailed document review',
             'Strategic application approach',
             'End-to-end application support',
             'Post-submission guidance'
@@ -55,8 +55,10 @@ const servicesData = [
 
 const ServicesSection = () => {
     return (
-        <div className='w-full h-full bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat absolute inset-0'>
-            <div className='flex justify-center md:pt-20 pt-20 text-black md:text-4xl font-bold mb-8 md:mb-0'>OUR SERVICES</div>
+        <div className='w-full  bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat absolute inset-0'>
+            <div className='flex justify-center md:pt-10 pt-10 text-black dark:text-white md:text-4xl font-bold mb-8 md:mb-0'>
+                OUR SERVICES
+            </div>
             <div className='md:h-[500px] md:px-32 h-fit'>
                 <Swiper
                     modules={[Pagination, Navigation, Autoplay]}
@@ -70,39 +72,41 @@ const ServicesSection = () => {
                     }}
                     className="mySwiper"
                     breakpoints={{
-                        // When the screen width is >= 640px
                         640: {
-                            slidesPerView: 1, // Show 1 slide on mobile
+                            slidesPerView: 1,
                         },
-                        // When the screen width is >= 768px
                         768: {
-                            slidesPerView: 2, // Show 2 slides on medium screens
+                            slidesPerView: 2,
                         },
-                        // When the screen width is >= 1024px
                         1024: {
-                            slidesPerView: 3, // Show 3 slides on larger screens
+                            slidesPerView: 3,
                         },
                     }}
                 >
-                    {servicesData.map((service) => (
-                        <SwiperSlide key={service.id} className="flex flex-col md:flex-row justify-center pb-7">
-                            <div className="flex flex-col items-center w-full max-w-md bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
-                                <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                    {servicesData.map((destination) => (
+                        <SwiperSlide key={destination.id} className="flex flex-col md:flex-row justify-center pb-7">
+                            <div className="flex flex-col items-center w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
+                                <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-white dark:border-gray-700 shadow-2xl">
                                     <img
-                                        src={service.image}
-                                        alt={service.title}
+                                        src={destination.image}
+                                        alt={destination.title}
                                         className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110"
                                     />
                                 </div>
-                                <h2 className="text-xl font-bold mb-2 text-blue-600">{service.title}</h2>
+                                <h2 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">
+                                    {destination.title}
+                                </h2>
                                 <ul className="space-y-2">
-                                    {service.points.map((point, index) => (
-                                        <li key={index} className="text-gray-700">
-                                            <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mr-2"></span>
+                                    {destination.points.map((point, index) => (
+                                        <li key={index} className="text-gray-700 dark:text-gray-300">
+                                            <span className="inline-block w-2 h-2 rounded-full bg-blue-600 dark:bg-blue-400 mr-2"></span>
                                             {point}
                                         </li>
                                     ))}
                                 </ul>
+                                <button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300">
+                                    Learn More
+                                </button>
                             </div>
                         </SwiperSlide>
                     ))}
@@ -111,5 +115,28 @@ const ServicesSection = () => {
         </div>
     );
 };
+
+// Add custom styles for Swiper navigation
+const customStyles = `
+.swiper-button-next,
+.swiper-button-prev {
+    color: #3B82F6;
+}
+
+.swiper-pagination-bullet {
+    background: #3B82F6;
+}
+
+.swiper-pagination-bullet-active {
+    background: #2563EB;
+}
+`;
+
+// Add the styles to the document
+if (typeof document !== 'undefined') {
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = customStyles;
+    document.head.appendChild(styleSheet);
+}
 
 export default ServicesSection;

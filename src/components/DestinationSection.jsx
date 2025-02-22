@@ -1,127 +1,108 @@
-import React, { useRef, useState } from 'react';
-// Import Swiper React components
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation, Autoplay, EffectCoverflow } from 'swiper/modules';
 
-// Import Swiper styles
+// Import additional Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
 
-// import './styles.css';
-
-// import required modules
-// import { Pagination } from 'swiper/modules';
-import { Pagination, Navigation, Autoplay } from 'swiper/modules';
-
-
-const servicesData = [
+const destinationsData = [
     {
         id: 1,
-        title: 'Visa Services',
-        image: '/assets/images/visa_service.png',
-        points: [
-            'Personalized one-to-one consultation',
-            'Detailed document review and optimization',
-            'Strategic application approach',
-            'End-to-end application support',
-            'Post-submission guidance'
-        ]
+        title: 'United States of America',
+        image: '/assets/images/usa.jpeg', // Image of Manhattan Bridge
+        overlayPosition: 'left'
     },
     {
         id: 2,
-        title: 'Application Services',
-        image: '/assets/images/application_service.png',
-        points: [
-            'Comprehensive application strategy',
-            'Profile evaluation and enhancement',
-            'Document preparation and review',
-            'Interview preparation',
-            'Continuous application tracking'
-        ]
+        title: 'Canada',
+        image: '/assets/images/canada.jpeg', // Image of CN Tower
+        overlayPosition: 'center'
     },
     {
         id: 3,
-        title: 'SOP Services',
-        image: '/assets/images/sop.png',
-        points: [
-            'Personalized SOP writing',
-            'Content optimization',
-            'Narrative development',
-            'Editing and refinement',
-            'Unique storytelling approach'
-        ]
-    },
-    {
-        id: 4,
-        title: 'SOP Services',
-        image: '/assets/images/sop.png',
-        points: [
-            'Personalized SOP writing',
-            'Content optimization',
-            'Narrative development',
-            'Editing and refinement',
-            'Unique storytelling approach'
-        ]
+        title: 'Australia',
+        image: '/assets/images/australia.jpeg', // Image of Sydney Opera House
+        overlayPosition: 'right'
     }
 ];
 
-
 const DestinationSection = () => {
     return (
-        <div className='w-full h-full bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat absolute inset-0'>
-            <div className='flex justify-center md:pt-20 pt-20 text-black md:text-4xl font-bold mb-8 md:mb-0'>OUR SERVICES</div>
-            <div className='md:h-[500px] md:px-32 h-fit'>
+        <div className='w-full h-full flex flex-col items-center px-4'>
+            <h1 className='text-3xl md:text-4xl font-bold text-center text-black dark:text-white my-10'>
+                STUDY ABROAD DESTINATIONS
+            </h1>
+
+            <div className='w-full max-w-6xl'>
                 <Swiper
                     modules={[Pagination, Navigation, Autoplay]}
-                    spaceBetween={30}
+                    spaceBetween={20}
                     loop={true}
-                    pagination={{ clickable: true }}
-                    navigation={true}
+                    pagination={{
+                        clickable: true,
+                        el: '.custom-pagination',
+                        bulletClass: 'w-8 h-1 bg-gray-300 dark:bg-gray-600 mx-1 rounded-full cursor-pointer transition-all duration-300',
+                        bulletActiveClass: '!bg-blue-600 dark:!bg-blue-400',
+                    }}
                     autoplay={{
                         delay: 3000,
                         disableOnInteraction: false,
                     }}
-                    className="mySwiper"
                     breakpoints={{
-                        // When the screen width is >= 640px
-                        640: {
-                            slidesPerView: 1, // Show 1 slide on mobile
-                        },
-                        // When the screen width is >= 768px
-                        768: {
-                            slidesPerView: 2, // Show 2 slides on medium screens
-                        },
-                        // When the screen width is >= 1024px
-                        1024: {
-                            slidesPerView: 3, // Show 3 slides on larger screens
-                        },
+                        640: { slidesPerView: 1 },
+                        768: { slidesPerView: 2 },
+                        1024: { slidesPerView: 3 },
                     }}
+                    className="mySwiper"
                 >
-                    {servicesData.map((service) => (
-                        <SwiperSlide key={service.id} className="flex flex-col md:flex-row justify-center pb-7">
-                            <div className="flex flex-col items-center w-full max-w-md bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
-                                <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4 border-white shadow-2xl">
-                                    <img
-                                        src={service.image}
-                                        alt={service.title}
-                                        className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110"
-                                    />
+                    {destinationsData.map((destination) => (
+                        <SwiperSlide key={destination.id}>
+                            <div className="relative rounded-2xl overflow-hidden aspect-square shadow-lg group cursor-pointer">
+                                {/* Image */}
+                                <img
+                                    src={destination.image}
+                                    alt={destination.title}
+                                    className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+                                />
+                                
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300 group-hover:bg-opacity-40">
+                                    {/* Text Overlay */}
+                                    <div className={`absolute bottom-6 w-full text-center text-white text-xl md:text-2xl font-semibold px-4`}>
+                                        {destination.title}
+                                    </div>
                                 </div>
-                                <h2 className="text-xl font-bold mb-2 text-blue-600">{service.title}</h2>
-                                <ul className="space-y-2">
-                                    {service.points.map((point, index) => (
-                                        <li key={index} className="text-gray-700">
-                                            <span className="inline-block w-2 h-2 rounded-full bg-blue-600 mr-2"></span>
-                                            {point}
-                                        </li>
-                                    ))}
-                                </ul>
                             </div>
                         </SwiperSlide>
                     ))}
                 </Swiper>
+
+                {/* Custom Pagination */}
+                <div className="custom-pagination flex justify-center items-center mt-6 space-x-2" />
             </div>
         </div>
     );
 };
+
+// Add custom styles for smooth transitions
+const customStyles = `
+.swiper-slide {
+    transition: all 0.3s ease;
+}
+
+.swiper-slide:hover {
+    transform: translateY(-10px);
+}
+`;
+
+// Add the styles to the document
+if (typeof document !== 'undefined') {
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = customStyles;
+    document.head.appendChild(styleSheet);
+}
 
 export default DestinationSection;

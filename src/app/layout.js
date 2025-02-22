@@ -13,16 +13,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-
-      <body className={inter.className}>
+    <html lang="en" className="h-full">
+      <body className={`${inter.className} h-full`}>
         {/* <DisableInspect /> */}
-        <div className='bg-white dark:bg-gray-500 relative'>
-          <div className='absolute flex justify-center items-center z-50 w-full'>
+        <div className='relative h-screen w-full overflow-hidden bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800'>
+          {/* Navbar Container */}
+          <div className='fixed top-0 left-0 right-0 h-[50px] flex justify-center items-center z-50'>
             <Navbar />
           </div>
-          {children}
-          <div className='absolute right-4 bottom-4 z-50'>
+
+          {/* Main Content Container */}
+          <main className='h-[calc(100vh-50px)] mt-[60px] relative'>
+            {children}
+          </main>
+
+          {/* Theme Toggle Button */}
+          <div className='fixed right-4 bottom-4 z-50'>
             <ThemeToggle/>
           </div>
         </div>

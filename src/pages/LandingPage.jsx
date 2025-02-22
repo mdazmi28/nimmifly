@@ -85,6 +85,11 @@ const LandingPage = () => {
                         <DestinationSection />
                     </section>
                 </SwiperSlide>
+                {/* <SwiperSlide>
+                    <section id="destinations">
+                        avf
+                    </section>
+                </SwiperSlide> */}
             </Swiper>
         </div>
     );
