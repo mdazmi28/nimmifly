@@ -3,23 +3,51 @@
 import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination, Keyboard } from 'swiper/modules';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// Make sure these component imports are correct and the files exist
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/VisaServicesSection';
+import ServicesSection from '@/components/ServicesSection';
+import DestinationSection from '@/components/DestinationSection';
+
+// Define navLinks here since it's used in the Navbar
+export const navLinks = [
+    { name: 'Home', key: 'home' },
+    { name: 'Services', key: 'services' },
+    { name: 'Destinations', key: 'destinations' },
+];
 
 const LandingPage = () => {
     const [activeSection, setActiveSection] = useState('home');
     const swiperRef = useRef(null);
 
+    const sectionToIndex = {
+        'home': 0,
+        'services': 1,
+        'destination': 2,
+    };
+
+    const indexToSection = {
+        0: 'home',
+        1: 'services',
+        2: 'destination',
+    };
+
     const handleSlideChange = (swiper) => {
         const index = swiper.activeIndex;
-        setActiveSection(index === 0 ? 'home' : 'services');
+        setActiveSection(indexToSection[index] || 'home');
     };
 
     const handleNavClick = (section) => {
         if (swiperRef.current && swiperRef.current.swiper) {
-            const index = section === 'home' ? 0 : 1;
-            swiperRef.current.swiper.slideTo(index);
+            const index = sectionToIndex[section];
+            if (index !== undefined) {
+                swiperRef.current.swiper.slideTo(index);
+            }
         }
     };
 
@@ -50,6 +78,11 @@ const LandingPage = () => {
                 <SwiperSlide>
                     <section id="services">
                         <ServicesSection />
+                    </section>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <section id="destinations">
+                        <DestinationSection />
                     </section>
                 </SwiperSlide>
             </Swiper>

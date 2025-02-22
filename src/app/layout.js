@@ -16,12 +16,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
 
       <body className={inter.className}>
-        {/* <div className='bg-white dark:bg-gray-500'>
-          <div className='flex justify-end relative'>
-            <ThemeToggle />
-          </div>
-          {children}
-        </div> */}
         {/* <DisableInspect /> */}
         <div className='bg-white dark:bg-gray-500 relative'>
           <div className='absolute flex justify-center items-center z-50 w-full'>
