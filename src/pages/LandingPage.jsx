@@ -1,45 +1,59 @@
+// LandingPage.tsx
 'use client'
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination, Keyboard } from 'swiper/modules';
-
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-
+import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
-import AboutSection from '@/components/AboutSection';
 import ServicesSection from '@/components/VisaServicesSection';
-import ApplicationServices from '@/components/ApplicationServices';
-import SOPServices from '@/components/SOPServices';
-// import ContactSection from '@/components/ContactSection';
 
 const LandingPage = () => {
+    const [activeSection, setActiveSection] = useState('home');
+    const swiperRef = useRef(null);
+
+    const handleSlideChange = (swiper) => {
+        const index = swiper.activeIndex;
+        setActiveSection(index === 0 ? 'home' : 'services');
+    };
+
+    const handleNavClick = (section) => {
+        if (swiperRef.current && swiperRef.current.swiper) {
+            const index = section === 'home' ? 0 : 1;
+            swiperRef.current.swiper.slideTo(index);
+        }
+    };
+
     return (
-        <Swiper
-            direction={'vertical'}
-            slidesPerView={1}
-            spaceBetween={0}
-            mousewheel={true}
-            keyboard={{
-                enabled: true,
-            }}
-            modules={[Mousewheel, Pagination, Keyboard]}
-            className="h-screen"
-        >
-            <SwiperSlide>
-                <HeroSection />
-            </SwiperSlide>
-            <SwiperSlide>
-                <ServicesSection />
-            </SwiperSlide>
-            {/* <SwiperSlide>
-               <ApplicationServices/>
-            </SwiperSlide>
-            <SwiperSlide>
-               <SOPServices/>
-            </SwiperSlide> */}
-        </Swiper>
+        <div className="relative h-screen">
+            <div className="fixed top-0 w-full z-50">
+                <Navbar activeSection={activeSection} onNavClick={handleNavClick} />
+            </div>
+            
+            <Swiper
+                ref={swiperRef}
+                direction={'vertical'}
+                slidesPerView={1}
+                spaceBetween={0}
+                mousewheel={true}
+                keyboard={{
+                    enabled: true,
+                }}
+                modules={[Mousewheel, Pagination, Keyboard]}
+                className="h-screen"
+                onSlideChange={handleSlideChange}
+            >
+                <SwiperSlide>
+                    <section id="home">
+                        <HeroSection />
+                    </section>
+                </SwiperSlide>
+                <SwiperSlide>
+                    <section id="services">
+                        <ServicesSection />
+                    </section>
+                </SwiperSlide>
+            </Swiper>
+        </div>
     );
 };
 
