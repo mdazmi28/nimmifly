@@ -1,6 +1,7 @@
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation, Autoplay, EffectCoverflow } from 'swiper/modules';
+import Image from 'next/image';
 
 // Import additional Swiper styles
 import 'swiper/css';
@@ -62,12 +63,16 @@ const DestinationSection = () => {
                         <SwiperSlide key={destination.id}>
                             <div className="relative rounded-2xl overflow-hidden aspect-square shadow-lg group cursor-pointer">
                                 {/* Image */}
-                                <img
+                                <Image
                                     src={destination.image}
+                                    width={500}    // Specify appropriate width
+                                    height={300}   // Specify appropriate height
                                     alt={destination.title}
                                     className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-110"
+                                    // priority      // Optional: for important images
+                                    // quality={75}  // Optional: adjust quality (default is 75)
                                 />
-                                
+
                                 {/* Overlay */}
                                 <div className="absolute inset-0 bg-black bg-opacity-30 transition-opacity duration-300 group-hover:bg-opacity-40">
                                     {/* Text Overlay */}

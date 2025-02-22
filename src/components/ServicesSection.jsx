@@ -11,6 +11,7 @@ import 'swiper/css/pagination';
 // import required modules
 // import { Pagination } from 'swiper/modules';
 import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+import Image from 'next/image';
 
 
 const servicesData = [
@@ -87,10 +88,15 @@ const ServicesSection = () => {
                         <SwiperSlide key={destination.id} className="flex flex-col md:flex-row justify-center pb-7">
                             <div className="flex flex-col items-center w-full max-w-md bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105">
                                 <div className="mb-4 w-32 h-32 rounded-full overflow-hidden border-4shadow-2xl">
-                                    <img
+          
+                                    <Image
                                         src={destination.image}
+                                        width={500}    // Specify appropriate width
+                                        height={300}   // Specify appropriate height
                                         alt={destination.title}
                                         className="w-full h-full object-cover transform transition-transform duration-300 hover:scale-110"
+                                        priority      // Optional: for important images
+                                        quality={75}  // Optional: adjust quality (default is 75)
                                     />
                                 </div>
                                 <h2 className="text-xl font-bold mb-2 text-blue-600 dark:text-blue-400">

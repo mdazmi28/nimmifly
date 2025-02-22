@@ -13,6 +13,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import DestinationSection from '@/components/DestinationSection';
+import MapSection from '@/components/MapSection'
 
 // Define navLinks here since it's used in the Navbar
 export const navLinks = [
@@ -85,6 +86,11 @@ const LandingPage = () => {
                         <DestinationSection />
                     </section>
                 </SwiperSlide>
+                {/* <SwiperSlide>
+                    <section id="">
+                       <MapSection/>
+                    </section>
+                </SwiperSlide> */}
                 {/* <SwiperSlide>
                     <section id="destinations">
                         avf
