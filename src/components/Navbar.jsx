@@ -23,13 +23,13 @@ const Navbar = ({ activeSection, onNavClick }) => {
     return (
         <div className="w-full flex justify-center pt-2 px-4">
             {/* Desktop Navigation */}
-            <nav className="hidden md:block bg-[#DFF2EF] backdrop-blur-lg p-4 rounded-full shadow-lg">
+            <nav className="hidden md:block bg-[#DFF2EF] backdrop-blur-lg py-3 px-6 rounded-full shadow-lg">
                 <ul className="flex items-center space-x-8">
                     {navLinks.map((link) => (
                         <li key={link.key}>
                             <button
                                 onClick={() => handleClick(link.key)}
-                                className={`px-3 py-2 text-[15px] transition-colors duration-300 ${
+                                className={`px-3 text-[15px] transition-colors duration-300 ${
                                     activeSection === link.key
                                         ? 'text-black font-medium'
                                         : 'text-gray-500 hover:text-gray-800'

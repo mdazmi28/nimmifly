@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
           </div>
           {children}
         </div> */}
-        <DisableInspect />
+        {/* <DisableInspect /> */}
         <div className='bg-white dark:bg-gray-500 relative'>
           <div className='absolute flex justify-center items-center z-50 w-full'>
             <Navbar />
