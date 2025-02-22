@@ -8,11 +8,9 @@ const Navbar = ({ activeSection, onNavClick }) => {
     const navLinks = [
         { name: 'Home', key: 'home' },
         { name: 'Services', key: 'services' },
-        { name: 'Projects', key: 'projects' },
-        { name: 'Skills', key: 'skills' },
-        { name: 'Experience', key: 'experience' },
-        { name: 'Education', key: 'education' },
-        { name: 'Contact', key: 'contact' }
+        { name: 'Destination', key: 'destination' },
+        { name: 'About Us', key: 'about-us' },
+        { name: 'News & Insights', key: 'news-and-insights' },
     ];
 
     const handleClick = (key) => {
