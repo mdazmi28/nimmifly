@@ -25,7 +25,7 @@ const Location = () => {
             ></iframe>
           </div>
           {/* Info Card */}
-          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl">
+          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl hidden md:block">
             <div className="card-body text-black dark:text-white">
               <h3 className="card-title flex items-center gap-2 ">
                 <FaMapMarkerAlt className="text-black dark:text-white" />
