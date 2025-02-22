@@ -49,6 +49,18 @@ const servicesData = [
             'Editing and refinement',
             'Unique storytelling approach'
         ]
+    },
+    {
+        id: 4,
+        title: 'SOP Services',
+        image: '/assets/images/sop.png',
+        points: [
+            'Personalized SOP writing',
+            'Content optimization',
+            'Narrative development',
+            'Editing and refinement',
+            'Unique storytelling approach'
+        ]
     }
 ];
 
