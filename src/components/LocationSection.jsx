@@ -7,7 +7,7 @@ const LocationSection = () => {
   return (
     <div className='h-screen flex flex-col justify-center items-center bg-cover bg-bottom bg-no-repeat px-4'>
       <h2 className="text-4xl font-bold text-center mb-12 text-black dark:text-white">We Are At</h2>
-      <div className='md:h-[450px] w-full flex flex-col-reverse md:flex-row md:gap-6'>
+      <div className='md:h-[450px] w-full flex flex-col md:flex-row gap-5 md:gap-6'>
         <div className='w-full md:w-3/4 rounded-3xl overflow-hidden shadow-lg'>
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.0627320821613!2d-80.18845092424439!3d25.928479977727688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ad5aa2dced3b%3A0x3ee54030d592f89c!2s999%20NE%20167th%20St%2C%20North%20Miami%20Beach%2C%20FL%2033162%2C%20USA!5e0!3m2!1sen!2s!4v1708588288086!5m2!1sen!2s"
@@ -22,7 +22,7 @@ const LocationSection = () => {
         </div>
         {/* Card */}
         <div className='w-full md:w-1/4 text-black'>
-          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl hidden md:block text-black">
+          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl text-black">
             <div className="card-body text-black ">
               <h3 className="card-title flex items-center gap-2 ">
                 <FaMapMarkerAlt className="text-black" />
