@@ -46,42 +46,42 @@ const servicesData = [
             'Unique storytelling approach'
         ]
     },
-    {
-        id: 4,
-        title: 'Visa Services',
-        image: '/assets/images/visa_service.png',
-        points: [
-            'Personalized one-to-one consultation',
-            'Detailed document review',
-            'Strategic application approach',
-            'End-to-end application support',
-            'Post-submission guidance'
-        ]
-    },
-    {
-        id: 5,
-        title: 'Application Services',
-        image: '/assets/images/application_service.png',
-        points: [
-            'Comprehensive application strategy',
-            'Profile evaluation and enhancement',
-            'Document preparation and review',
-            'Interview preparation',
-            'Continuous application tracking'
-        ]
-    },
-    {
-        id: 6,
-        title: 'SOP Services',
-        image: '/assets/images/sop.png',
-        points: [
-            'Personalized SOP writing',
-            'Content optimization',
-            'Narrative development',
-            'Editing and refinement',
-            'Unique storytelling approach'
-        ]
-    }
+    // {
+    //     id: 4,
+    //     title: 'Visa Services',
+    //     image: '/assets/images/visa_service.png',
+    //     points: [
+    //         'Personalized one-to-one consultation',
+    //         'Detailed document review',
+    //         'Strategic application approach',
+    //         'End-to-end application support',
+    //         'Post-submission guidance'
+    //     ]
+    // },
+    // {
+    //     id: 5,
+    //     title: 'Application Services',
+    //     image: '/assets/images/application_service.png',
+    //     points: [
+    //         'Comprehensive application strategy',
+    //         'Profile evaluation and enhancement',
+    //         'Document preparation and review',
+    //         'Interview preparation',
+    //         'Continuous application tracking'
+    //     ]
+    // },
+    // {
+    //     id: 6,
+    //     title: 'SOP Services',
+    //     image: '/assets/images/sop.png',
+    //     points: [
+    //         'Personalized SOP writing',
+    //         'Content optimization',
+    //         'Narrative development',
+    //         'Editing and refinement',
+    //         'Unique storytelling approach'
+    //     ]
+    // }
 ];
 
 const ServicesSection = () => {
@@ -112,7 +112,7 @@ const ServicesSection = () => {
                         modules={[Pagination, Autoplay]}
                         spaceBetween={30}
                         loop={true}
-                        // pagination={{ clickable: true }}
+                        pagination={{ clickable: true }}
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: false,

@@ -25,19 +25,19 @@ const destinationsData = [
     },
     {
         id: 4,
-        title: 'United States of America',
-        image: '/assets/images/usa.jpeg',
+        title: 'Germany',
+        image: '/assets/images/germany.jpeg',
     },
-    {
-        id: 5,
-        title: 'Canada',
-        image: '/assets/images/canada.jpeg',
-    },
-    {
-        id: 6,
-        title: 'Australia',
-        image: '/assets/images/australia.jpeg',
-    },
+    // {
+    //     id: 5,
+    //     title: 'Canada',
+    //     image: '/assets/images/canada.jpeg',
+    // },
+    // {
+    //     id: 6,
+    //     title: 'Australia',
+    //     image: '/assets/images/australia.jpeg',
+    // },
 ];
 
 const DestinationSection = () => {
@@ -108,7 +108,7 @@ const DestinationSection = () => {
                     </Swiper>
 
                     {/* Custom Pagination */}
-                    {/* <div className="custom-pagination flex justify-center items-center mt-8 space-x-2" /> */}
+                    <div className="custom-pagination flex justify-center items-center mt-8 space-x-2" />
                 </div>
             </div>
         </div>
