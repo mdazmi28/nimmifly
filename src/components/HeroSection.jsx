@@ -8,7 +8,7 @@ const HeroSection = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     return (
         <div className='h-screen flex flex-col md:flex-row bg-[url(/assets/images/hero_image.png)] dark:bg-[url(/assets/images/dark_hero.png)] bg-cover bg-bottom bg-no-repeat'>
-            <div className='w-full md:w-1/2 flex flex-col justify-start items-center px-9'>
+            <div className='w-full md:w-1/2 flex flex-col justify-center items-center px-9'>
                 <div>
                     <Image
                         src="/assets/images/logo.png"

@@ -29,9 +29,9 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Main Content Container */}
-          <main className='pt-[60px] min-h-screen overflow-y-auto'>
+          {/* <main className='pt-[60px] min-h-screen overflow-y-auto'> */}
             {children}
-          </main>
+          {/* </main> */}
 
           {/* Theme Toggle Button */}
           <div className='fixed right-4 bottom-4 z-50'>
