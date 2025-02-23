@@ -42,7 +42,7 @@ const destinationsData = [
 
 const DestinationSection = () => {
     return (
-        <section className="w-full min-h-screen  py-20">
+        <div className='min-h-screen py-16 flex flex-col bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat'>
             <div className="container mx-auto px-4 md:px-8 lg:px-12">
                 {/* Section Header */}
                 <div className="text-center mb-12">
@@ -108,10 +108,10 @@ const DestinationSection = () => {
                     </Swiper>
 
                     {/* Custom Pagination */}
-                    <div className="custom-pagination flex justify-center items-center mt-8 space-x-2" />
+                    {/* <div className="custom-pagination flex justify-center items-center mt-8 space-x-2" /> */}
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
