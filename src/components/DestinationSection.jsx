@@ -42,7 +42,7 @@ const destinationsData = [
 
 const DestinationSection = () => {
     return (
-        <div className='min-h-screen py-16 flex flex-col bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat'>
+        <div className='h-screen flex justify-center items-center bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat'>
             <div className="container mx-auto px-4 md:px-8 lg:px-12">
                 {/* Section Header */}
                 <div className="text-center mb-12">

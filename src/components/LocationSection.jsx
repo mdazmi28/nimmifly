@@ -5,28 +5,27 @@ import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaClock } from 'react-icons/fa';
 
 const LocationSection = () => {
   return (
-    <section className="">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-black dark:text-white">We Are At</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Map Container */}
-          <div className="md:col-span-2 h-[450px] rounded-lg overflow-hidden shadow-xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.0627320821613!2d-80.18845092424439!3d25.928479977727688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ad5aa2dced3b%3A0x3ee54030d592f89c!2s999%20NE%20167th%20St%2C%20North%20Miami%20Beach%2C%20FL%2033162%2C%20USA!5e0!3m2!1sen!2s!4v1708588288086!5m2!1sen!2s"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full"
-            ></iframe>
-          </div>
-          {/* Info Card */}
-          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl hidden md:block">
-            <div className="card-body text-black dark:text-white">
+    <div className='h-screen flex flex-col justify-center items-center bg-cover bg-bottom bg-no-repeat px-4'>
+      <h2 className="text-4xl font-bold text-center mb-12 text-black dark:text-white">We Are At</h2>
+      <div className='md:h-[450px] w-full flex flex-col-reverse md:flex-row md:gap-6'>
+        <div className='w-full md:w-3/4 rounded-3xl overflow-hidden shadow-lg'>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3585.0627320821613!2d-80.18845092424439!3d25.928479977727688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9ad5aa2dced3b%3A0x3ee54030d592f89c!2s999%20NE%20167th%20St%2C%20North%20Miami%20Beach%2C%20FL%2033162%2C%20USA!5e0!3m2!1sen!2s!4v1708588288086!5m2!1sen!2s"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen=""
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="w-full h-full"
+          ></iframe>
+        </div>
+        {/* Card */}
+        <div className='w-full md:w-1/4 text-black'>
+          <div className="card bg-slate-200 dark:bg-base-100 shadow-xl hidden md:block text-black">
+            <div className="card-body text-black ">
               <h3 className="card-title flex items-center gap-2 ">
-                <FaMapMarkerAlt className="text-black dark:text-white" />
+                <FaMapMarkerAlt className="text-black" />
                 Visit Us
               </h3>
 
@@ -39,18 +38,18 @@ const LocationSection = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <FaPhone className="text-black dark:text-white" />
+                  <FaPhone className="text-black" />
                   <p>(555) 123-4567</p>
                 </div>
 
                 <div className="flex items-center gap-2">
-                  <FaEnvelope className="text-black dark:text-white" />
+                  <FaEnvelope className="text-black" />
                   <p>info@example.com</p>
                 </div>
 
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
-                    <FaClock className="text-black dark:text-white" />
+                    <FaClock className="text-black" />
                     <h4 className="font-semibold">Business Hours</h4>
                   </div>
                   <ul className="menu">
@@ -72,8 +71,11 @@ const LocationSection = () => {
             </div>
           </div>
         </div>
+
+
       </div>
-    </section>
+
+    </div>
   );
 };
 
