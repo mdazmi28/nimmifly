@@ -24,12 +24,12 @@ const LocationSection = () => {
         <div className='w-full md:w-1/4 text-black'>
           <div className="card bg-slate-200 dark:bg-base-100 shadow-xl text-black">
             <div className="card-body text-black ">
-              <h3 className="card-title flex items-center gap-2 ">
-                <FaMapMarkerAlt className="text-black" />
+              <h3 className="card-title flex items-center gap-2 dark:text-white">
+                <FaMapMarkerAlt className="text-black dark:text-white" />
                 Visit Us
               </h3>
 
-              <address className="not-italic">
+              <address className="not-italic dark:text-white">
                 <p>999 NE 167th St</p>
                 <p>North Miami Beach, FL 33162</p>
               </address>
@@ -38,21 +38,21 @@ const LocationSection = () => {
 
               <div className="space-y-4">
                 <div className="flex items-center gap-2">
-                  <FaPhone className="text-black" />
-                  <p>(555) 123-4567</p>
+                  <FaPhone className="text-black dark:text-white" />
+                  <p className='dark:text-white'>(555) 123-4567</p>
                 </div>
 
-                <div className="flex items-center gap-2">
-                  <FaEnvelope className="text-black" />
+                <div className="flex items-center gap-2 dark:text-white">
+                  <FaEnvelope className="text-black dark:text-white" />
                   <p>info@example.com</p>
                 </div>
 
                 <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <FaClock className="text-black" />
+                  <div className="flex items-center gap-2 dark:text-white">
+                    <FaClock className="text-black dark:text-white" />
                     <h4 className="font-semibold">Business Hours</h4>
                   </div>
-                  <ul className="menu">
+                  <ul className="menu dark:text-white">
                     <li>Monday - Friday: 9:00 AM - 6:00 PM</li>
                     <li>Saturday: 10:00 AM - 4:00 PM</li>
                     <li>Sunday: Closed</li>
