@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body className="min-h-screen">
-        <div className='relative min-h-screen w-full bg-gray-50 dark:bg-gray-900'>
+        <div className='relative min-h-screen w-full bg-gray-100 dark:bg-gray-900'>
           {/* Navbar Container */}
           <div className='fixed top-0 left-0 right-0 h-[50px] flex justify-center items-center z-50'>
             <Navbar />
