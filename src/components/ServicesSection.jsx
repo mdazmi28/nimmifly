@@ -93,7 +93,8 @@ const ServicesSection = () => {
     };
 
     return (
-        <div className='h-screen flex justify-center items-center bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat'>
+        <div className='h-screen flex justify-center items-center bg-cover bg-bottom bg-no-repeat'>
+        {/* <div className='h-screen flex justify-center items-center bg-[url(/assets/images/section_image.png)] dark:bg-[url(/assets/images/dark_section.png)] bg-cover bg-bottom bg-no-repeat'> */}
             <div className='container mx-auto px-4'>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
