@@ -407,6 +407,12 @@ const Navbar = () => {
 
     const navLinks = [
         { 
+            name: 'About Us', 
+            key: 'about-us',
+            icon: '✨',
+            gradient: 'from-[#FFD93D] to-[#FF6B6B]'
+        },
+        { 
             name: 'Services', 
             key: 'services',
             icon: '⚡️',
@@ -417,12 +423,6 @@ const Navbar = () => {
             key: 'destination',
             icon: '🌈',
             gradient: 'from-[#A8E6CF] to-[#3D84A8]'
-        },
-        { 
-            name: 'About Us', 
-            key: 'about-us',
-            icon: '✨',
-            gradient: 'from-[#FFD93D] to-[#FF6B6B]'
         },
         { 
             name: 'News & Insights', 
