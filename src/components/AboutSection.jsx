@@ -88,13 +88,18 @@ const AboutSection = () => {
                                 className={`
                                     ${feature.color} 
                                     p-8 rounded-3xl 
-                                    transition-all duration-500 ease-out
-                                    transform backdrop-blur-sm
+                                    transition-all 
+                                    duration-500 
+                                    ease-out
+                                    transform 
+                                    backdrop-blur-sm
                                     ${index <= currentCard 
                                         ? 'opacity-100 translate-y-0 scale-100' 
                                         : 'opacity-0 translate-y-20 scale-95'}
-                                    shadow-lg hover:shadow-2xl
-                                    border border-white/10
+                                    shadow-lg 
+                                    hover:shadow-2xl
+                                    border
+                                 border-white/10
                                 `}
                             >
                                 <div className="space-y-4">
@@ -111,7 +116,7 @@ const AboutSection = () => {
                     </div>
 
                     {/* Progress Indicator */}
-                    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
+                    {/* <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
                         {features.map((_, index) => (
                             <div
                                 key={index}
@@ -125,7 +130,7 @@ const AboutSection = () => {
                                 `}
                             />
                         ))}
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </section>
