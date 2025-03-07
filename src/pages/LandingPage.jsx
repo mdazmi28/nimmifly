@@ -6,12 +6,16 @@ import ServicesSection from '@/components/ServicesSection';
 import DestinationSection from '@/components/DestinationSection';
 import LocationSection from '@/components/LocationSection';
 import ContactUs from '@/components/ContactUs';
+import AboutSection from '@/components/AboutSection';
 
 const LandingPage = () => {
     return (
         <div className='w-full'>
             <section id='home' className=' '>
                 <HeroSection />
+            </section>
+            <section id='about-us' className=' '>
+                <AboutSection />
             </section>
             
             <section id='services' className=''>
