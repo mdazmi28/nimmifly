@@ -126,6 +126,7 @@
 
 
 
+
 'use client';
 import { useRef, useEffect, useState } from 'react';
 
@@ -170,12 +171,11 @@ const AboutSection = () => {
 
             const container = containerRef.current;
             const containerTop = container.offsetTop;
-            const scrollPosition = window.scrollY + window.innerHeight * 0.5; // Center of viewport
-            const viewportHeight = window.innerHeight;
+            const scrollPosition = window.scrollY + window.innerHeight * 0.3; // Adjusted for quicker effect
+            const viewportHeight = window.innerHeight * 0.8; // Faster transitions
 
-            // Calculate progress, ensuring it's within valid range
             let scrollProgress = (scrollPosition - containerTop) / viewportHeight;
-            let cardIndex = Math.max(0, Math.min(features.length - 1, Math.floor(scrollProgress)));
+            let cardIndex = Math.max(0, Math.min(features.length - 1, Math.floor(scrollProgress * 2))); // Adjusted multiplier for speed
 
             setCurrentCard(cardIndex);
         };
@@ -185,17 +185,15 @@ const AboutSection = () => {
         };
 
         window.addEventListener('scroll', onScroll);
-        handleScroll(); // Initial check
+        handleScroll();
         return () => window.removeEventListener('scroll', onScroll);
     }, [features.length]);
 
     return (
-        <section ref={containerRef} className="min-h-[400vh]">
-            {/* Fixed container for content */}
+        <section ref={containerRef} className="min-h-[200vh]">
             <div className="sticky top-0 h-screen flex items-center justify-center">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-                    {/* Title Section */}
-                    <div className="text-center mb-20 space-y-6">
+                    <div className="text-center mb-16 space-y-6">
                         <h2 className="text-5xl md:text-6xl font-bold text-black dark:text-white">
                             About Nimifly
                         </h2>
@@ -206,7 +204,6 @@ const AboutSection = () => {
                         </p>
                     </div>
 
-                    {/* Cards Container */}
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                         {features.map((feature, index) => (
                             <div
@@ -221,7 +218,7 @@ const AboutSection = () => {
                                     backdrop-blur-sm
                                     ${index <= currentCard 
                                         ? 'opacity-100 translate-y-0 scale-100' 
-                                        : 'opacity-0 translate-y-20 scale-95'}
+                                        : 'opacity-0 translate-y-16 scale-95'}
                                     shadow-lg 
                                     hover:shadow-2xl
                                     border
