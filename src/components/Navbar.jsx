@@ -397,6 +397,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { FaUsers, FaTools, FaMapMarkerAlt, FaNewspaper, FaLocationArrow } from 'react-icons/fa';
 
 const Navbar = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -405,35 +406,68 @@ const Navbar = () => {
     const [lastScrollY, setLastScrollY] = useState(0);
     const [hoveredItem, setHoveredItem] = useState(null);
 
+    // const navLinks = [
+    //     { 
+    //         name: 'About Us', 
+    //         key: 'about-us',
+    //         icon: '✨',
+    //         gradient: 'from-[#FFD93D] to-[#FF6B6B]'
+    //     },
+    //     { 
+    //         name: 'Services', 
+    //         key: 'services',
+    //         icon: '⚡️',
+    //         gradient: 'from-[#FF6B6B] to-[#4ECDC4]'
+    //     },
+    //     { 
+    //         name: 'Destination', 
+    //         key: 'destination',
+    //         icon: '🌈',
+    //         gradient: 'from-[#A8E6CF] to-[#3D84A8]'
+    //     },
+    //     { 
+    //         name: 'News & Insights', 
+    //         key: 'news-and-insights',
+    //         icon: '📈',
+    //         gradient: 'from-[#6C5CE7] to-[#A8E6CF]'
+    //     },
+    //     { 
+    //         name: 'We Are At', 
+    //         key: 'location',
+    //         icon: '🎯',
+    //         gradient: 'from-[#FF8C42] to-[#FF3C38]'
+    //     },
+    // ];
+
     const navLinks = [
         { 
             name: 'About Us', 
             key: 'about-us',
-            icon: '✨',
+            icon: <FaUsers />,
             gradient: 'from-[#FFD93D] to-[#FF6B6B]'
         },
         { 
             name: 'Services', 
             key: 'services',
-            icon: '⚡️',
+            icon: <FaTools />,
             gradient: 'from-[#FF6B6B] to-[#4ECDC4]'
         },
         { 
             name: 'Destination', 
             key: 'destination',
-            icon: '🌈',
+            icon: <FaMapMarkerAlt />,
             gradient: 'from-[#A8E6CF] to-[#3D84A8]'
         },
         { 
             name: 'News & Insights', 
             key: 'news-and-insights',
-            icon: '📈',
+            icon: <FaNewspaper />,
             gradient: 'from-[#6C5CE7] to-[#A8E6CF]'
         },
         { 
             name: 'We Are At', 
             key: 'location',
-            icon: '🎯',
+            icon: <FaLocationArrow />,
             gradient: 'from-[#FF8C42] to-[#FF3C38]'
         },
     ];
