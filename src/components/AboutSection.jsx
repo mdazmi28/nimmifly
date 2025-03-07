@@ -1,9 +1,11 @@
 // AboutSection.jsx
 'use client';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import { useRef, useEffect, useState } from 'react';
 
 const AboutSection = () => {
+    const containerRef = useRef(null);
+    const [currentCard, setCurrentCard] = useState(0);
+
     const features = [
         {
             id: 1,
@@ -35,76 +37,98 @@ const AboutSection = () => {
         }
     ];
 
-    const [titleRef, titleInView] = useInView({
-        triggerOnce: true,
-        threshold: 0.2
-    });
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!containerRef.current) return;
+
+            const container = containerRef.current;
+            const containerTop = container.offsetTop;
+            const scrollPosition = window.scrollY;
+            const viewportHeight = window.innerHeight;
+            
+            // Adjust the scroll calculation for smoother transitions
+            const scrollProgress = (scrollPosition - containerTop) / viewportHeight;
+            const cardIndex = Math.floor(scrollProgress);
+            
+            if (cardIndex < features.length) {
+                setCurrentCard(cardIndex);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll(); // Initial check
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [features.length]);
 
     return (
-        <section className="py-20 bg-gradient-to-b from-gray-900 to-black">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Title Section */}
-                <motion.div
-                    ref={titleRef}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={titleInView ? { opacity: 1, y: 0 } : {}}
-                    transition={{ duration: 0.6 }}
-                    className="text-center mb-20"
-                >
-                    <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        About Nimifly
-                    </h2>
-                    <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-                        We're a leading global education consultancy, specializing in student recruitment 
-                        and engagement. We help universities attract, enroll, and retain top-tier students 
-                        through personalized strategies.
-                    </p>
-                </motion.div>
+        <section 
+            ref={containerRef}
+            className="min-h-[400vh] "
+        >
+            {/* Fixed container for content */}
+            <div className="sticky top-0 h-screen flex items-center justify-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+                    {/* Title Section */}
+                    <div className="text-center mb-20 space-y-6">
+                        <h2 className="text-5xl md:text-6xl font-bold text-black dark:text-white">
+                            About Nimifly
+                        </h2>
+                        <p className="text-black dark:text-white text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+                            We're a leading global education consultancy, specializing in student recruitment 
+                            and engagement. We help universities attract, enroll, and retain top-tier students 
+                            through personalized strategies.
+                        </p>
+                    </div>
 
-                {/* Cards Section */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {features.map((feature) => (
-                        <CardWithAnimation key={feature.id} feature={feature} />
-                    ))}
+                    {/* Cards Container */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                        {features.map((feature, index) => (
+                            <div
+                                key={feature.id}
+                                className={`
+                                    ${feature.color} 
+                                    p-8 rounded-3xl 
+                                    transition-all duration-500 ease-out
+                                    transform backdrop-blur-sm
+                                    ${index <= currentCard 
+                                        ? 'opacity-100 translate-y-0 scale-100' 
+                                        : 'opacity-0 translate-y-20 scale-95'}
+                                    shadow-lg hover:shadow-2xl
+                                    border border-white/10
+                                `}
+                            >
+                                <div className="space-y-4">
+                                    <span className="text-5xl block mb-6">{feature.icon}</span>
+                                    <h3 className="text-2xl font-bold text-white">
+                                        {feature.title}
+                                    </h3>
+                                    <p className="text-white/90 leading-relaxed">
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    {/* Progress Indicator */}
+                    <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
+                        {features.map((_, index) => (
+                            <div
+                                key={index}
+                                className={`
+                                    w-3 h-3 rounded-full 
+                                    transition-all duration-300
+                                    ${index <= currentCard 
+                                        ? 'bg-white scale-100' 
+                                        : 'bg-white/30 scale-75'
+                                    }
+                                `}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
-    );
-};
-
-// Separate Card Component with its own animation logic
-const CardWithAnimation = ({ feature }) => {
-    const [ref, inView] = useInView({
-        triggerOnce: true,
-        threshold: 0.2,
-        delay: 100
-    });
-
-    return (
-        <motion.div
-            ref={ref}
-            className=''
-            initial={{ opacity: 0, x: feature.id % 2 === 0 ? 50 : -50 }}
-            animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{
-                duration: 0.8,
-                delay: feature.id * 0.2,
-                ease: "easeOut"
-            }}
-        >
-            <div className={` ${feature.color} p-6 rounded-2xl h-full transform transition-transform 
-                hover:scale-105 duration-300 cursor-pointer`}>
-                <div className="flex flex-col h-full">
-                    <span className="text-4xl mb-4">{feature.icon}</span>
-                    <h3 className="text-xl font-bold text-white mb-3">
-                        {feature.title}
-                    </h3>
-                    <p className="text-white/80 flex-grow">
-                        {feature.description}
-                    </p>
-                </div>
-            </div>
-        </motion.div>
     );
 };
 
