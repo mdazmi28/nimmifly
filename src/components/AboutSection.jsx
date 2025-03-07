@@ -115,22 +115,6 @@ const AboutSection = () => {
                         ))}
                     </div>
 
-                    {/* Progress Indicator */}
-                    {/* <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 flex gap-3">
-                        {features.map((_, index) => (
-                            <div
-                                key={index}
-                                className={`
-                                    w-3 h-3 rounded-full 
-                                    transition-all duration-300
-                                    ${index <= currentCard 
-                                        ? 'bg-white scale-100' 
-                                        : 'bg-white/30 scale-75'
-                                    }
-                                `}
-                            />
-                        ))}
-                    </div> */}
                 </div>
             </div>
         </section>
